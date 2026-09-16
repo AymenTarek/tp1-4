@@ -96,31 +96,61 @@ Vous respecterez les consignes ci-dessous :
     * initialisation avec juste le numérateur (dénominateur égal à _1_),
     * initialisation sans argument (numérateur égal _0_ et dénominateur égal à _1_),
     ```Java
-    // Assertions pour tester les constructeurs (avec toString)
-    ```
+    public Fraction(int numérateur, int denominateur){
+        this.numérateur=numérateur;
+        this.denominateur=numérateur;
+
+    }
+    public Fraction(int numérateur){
+        this(numérateur,1);
+    }
+    public Fraction() {
+    this(0, 1);
+    }    ```
 1. Ajoutez les fractions constantes ZERO (0, 1) et UN (1, 1) (cf. [Constants in Java](https://www.baeldung.com/java-constants-good-practices)),
     ```Java
-    // Déclaration des constantes
+    public static final Fraction ZERO = new Fraction(0, 1);
+    public static final Fraction UN = new Fraction(1, 1);
     ```
 1. Ajoutez une méthode de consultation du numérateur et du dénominateur (par convention, en Java, une méthode retournant la valeur de l'attribut `anAttribute` est nommée `getAnAttribute`),
     ```Java
-    // Définition des getters
+     public int getNumérateur() {
+        return numérateur;
+    }
+    public int getDenominateur(){
+        return denominateur;
+    }   
     ```
 1. Ajoutez une méthode de consultation de la valeur sous la forme d'un nombre en virgule flottante (méthode `doubleValue()`) (cf. [`java.lang.Number`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Number.html)),
    ```Java
-    // Assertions pour tester la conversion
+    public double doubleValue() {
+        return (double) numerateur / denominateur;
+    }
     ```
 1. Ajoutez une méthode permettant l'addition de deux fractions (la méthode `add` prend en paramètre *une* fraction et *retourne* la somme de la fraction courante et du paramètre),
    ```Java
-    // Assertions pour tester l'addition
+    public Fraction add(Fraction autre) {
+        int nouveauNum = this.numérateur * autre.denominateur + autre.numérateur * this.denominateur;
+        int nouveauDenom = this.denominateur * autre.denominateur;
+        return new Fraction(nouveauNum, nouveauDenom);
+    }   
     ```
 1. Ajoutez le test d'égalité entre fractions (deux fractions sont égales si elles représentent la même fraction réduite) (cf. [`java.lang.Object.equals`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object))),
    ```Java
-    // Assertions pour tester l'égalité
+    @Override
+    public boolean equals(Object obj) {
+         if (!(obj instanceof Fraction)) return false;
+         Fraction autre = (Fraction) obj;
+        return this.numerateur * autre.denominateur == autre.numerateur * this.denominateur;
+    }// 
     ```
 1. Ajoutez la comparaison de fractions selon l'ordre naturel (cf. [`java.lang.Comparable`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Comparable.html)).
    ```Java
-    // Assertions pour tester la comparaison
+    public class Fraction implements Comparable<Fraction>  #tout en haut
+    @Override
+    public int compareTo(Fraction autre) {
+    return Double.compare(this.doubleValue(), autre.doubleValue());
+    }
     ```
 1. Faites hériter votre classe `Fraction` de la classe [`java.lang.Number`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Number.html) et complétez les méthodes
    ```Java
