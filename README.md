@@ -167,46 +167,46 @@ Vous pouvez répondre en utilisant le shell de votre choix (*bash*, *Powershell*
 Pour répondre à ces questions, vous devez effectuer les recherches documentaires adéquates (livre, web, …).
 
 1. Quel OS et quel shell de commande utilisez-vous ?
-    > Répondre ici
+    J'utilise Windows 10/11, avec Git Bash comme shell de commandes.
 1. Quelle commande permet d'obtenir de l'aide ?
 Donnez un exemple.
     ```bash
-    # Répondre ici
+    git commit --help
     ```
 1. Donnez la ou les commandes shell permettant de
     1. afficher les fichiers d'un répertoire triés par taille (taille affichée lisiblement)
         ```bash
-        # Répondre ici
+        ls -lhS
         ```
     1. compter le nombre de ligne d'un fichier
         ```bash
-        # Répondre ici
+        wc -l Main.java
         ```
     1. afficher les lignes du fichier `Main.java` contenant la chaîne `uneVariable`
         ```bash
-        # Répondre ici
+        grep "uneVariable" Main.java
         ```
     1. afficher récursivement les fichiers `.java` contenant la chaîne `uneVariable`
         ```bash
-        # Répondre ici
+        grep -r --include="*.java" "uneVariable" .
         ```
     1. trouver les fichiers (pas les répertoires) nommés `README.md` dans une arborescence de répertoires
         ```bash
-        # Répondre ici
+        find . -type f -name "README.md"
         ```
     1. afficher les différences entre deux fichiers textes
         ```bash
-        # Répondre ici
+        diff fichier1.txt fichier2.txt
         ```
 1. Expliquez en une ou deux phrases le rôle de ces commandes et dans quel contexte elles peuvent être utiles pour un développeur.
     * `ssh`
-        > Répondre ici
+        > permet de se connecter à distance à un serveur de façon sécurisée 
     * `screen`/`tmux`
-        > Répondre ici
+        > permettent de garder une session terminal active à distance et de gérer plusieurs fenêtres dans une seule connexion
     * `curl`/[HTTPie](https://httpie.org/)
-        > Répondre ici
+        >  permettent d'envoyer des requêtes HTTP en ligne de commande, utile pour tester une API.
     * [jq](https://stedolan.github.io/jq/)
-        > Répondre ici
+        > permet de traiter et afficher des données JSON en ligne de commande
 
 ### Découverte de votre *IDE*
 Dans cet exercice, vous expliquerez en quelques phrases comment vous réalisez les actions ci-dessous dans votre IDE.
@@ -214,28 +214,28 @@ Vous pouvez choisir l'IDE/éditeur de texte de votre choix.
 Pour réaliser cette exercice, vous devez bien évidemment vous reporter à la documentations de l'IDE ([IntelliJ IDEA](https://www.jetbrains.com/help/idea/discover-intellij-idea.html#developer-tools), [Visual Studio Code](https://code.visualstudio.com/docs), [Eclipse](https://help.eclipse.org/2020-09/index.jsp), …).
 
 1. Quels IDE ou éditeurs de texte utilisez-vous pour le développement Java ?
-    > Répondre ici
+    >  J'utilise Visual Studio Code avec l'extension "Extension Pack for Java".
 
     Pour la suite, ne considérez que l'un de vos choix.
 1. Comment vérifier/définir que l'encodage utilisé est *UTF-8* ?
-    > Répondre ici
+    > L'encodage UTF-8 se vérifie en bas à droite de la fenêtre VS Code.
 1. Comment choisir le JDK à utiliser dans un projet ?
     > Répondre ici
 1. Comment préciser la version Java des sources dans un projet ?
-    > Répondre ici
+    > La version Java des sources se précise dans le pom.xml (Maven) ou les paramètres Java de VS Code
 1. Comment ajouter une bibliothèque externe dans un projet ?
-    > Répondre ici
+    > Une bibliothèque externe s'ajoute via le pom.xml ou le classpath du projet
 1. Comment reformater un fichier source Java ?
-    > Répondre ici
+    > Shift+Alt+F
 1. Comment trouver la déclaration d'une variable ou méthode ?
-    > Répondre ici
+    >  clic droit > Go to Definition, ou F12
 1. Comment insérer un bloc de code prédéfini (*snippet*) ?
-    > Répondre ici
+    > taper le mot-clé puis Tab/Entrée.
 1. Comment renommer une classe dans l'ensemble du projet ?
-    > Répondre ici
+    > F2 sur le nom de la classe
 1. Comment exécuter le programme en lui passant un paramètre en ligne de commande ?
-    > Répondre ici
+    > ajouter dans le champ "args" du launch.json
 1. Comment déboguer le programme en visualisant le contenu d'une ou plusieurs variables ?
-    > Répondre ici
-1. Quels paramètres ou fonctionnalités vous semblent particulièrement importants/utiles pour le développement Java ?
-    > Répondre ici
+    > point d'arrêt + F5, variables visibles dans le panneau Debug.
+1. Quels paramètres ou fonctionnalités vous semblent particulièrement importants/utiles pour le développeépondre iciment Java ?
+    > Ce qui m'aide le plus : la complétion automatique du code, le débogueur intégré pour voir les variables pendant l'exécution, et les erreurs signalées directement pendant que j'écris.
