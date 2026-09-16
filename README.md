@@ -39,35 +39,43 @@ Validez les changements (cf. [Enregistrer des modifications dans le dépôt](htt
 1. Ajoutez la méthode `toString` à la classe `Fraction` (cf. [`Object.toString`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html#toString())) qui retournera la chaîne `"Je suis une fraction."` et modifiez la classe `Main` en conséquence;
 Validez les changements;
     ```Java
-    // Code pour tester toString
+    /Fraction f = new Fraction();
+    assert f.toString().equals("Je suis une fraction.") : "toString() ne retourne pas le bon texte";
+     System.out.println("Test est ok : " + f.toString());
     ```
 1. Publiez vos modifications sur le dépôt distant (cf. [Travailler avec des dépôts distants](https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-d%C3%A9p%C3%B4ts-distants));
 Vous utiliserez le protocole `https` pour cela;
 Vérifiez avec le navigateur;
     ```bash
-    # Commandes pour publier les modifications
+    git push -u origin master
     ```
 1. Sur la forge, ajoutez un fichier de documentation `README.md`.
 Quelle syntaxe est utilisée pour ce fichier ?
-    > Répondre ici
+    Markdown
 1. Récupérez localement les modifications effectuées sur la forge.
     ```bash
-    # Répondre ici
+    git pull
     ```
 1. Ajoutez les répertoires et fichiers issus de la compilation aux fichiers ignorés par `git` (cf. [`.gitignore` pour Java](https://github.com/github/gitignore/blob/main/Java.gitignore));
     ```bash
-    # Copier ici le contenu de `.gitignore`
+    *.class
+     target/
+     bin/
+     out/
+*   .jar
     ```
 1. Retirez les fichiers de configuration de l'IDE du projet;
     ```bash
-    # Répondre ici
+    # git rm -r --cached .vscode
     ```
     Ajoutez-les aux fichiers ignorés par `git`.
     ```bash
     # Copier ici les modifications de `.gitignore`
+     .vscode/
+     .idea/
     ```
 1. Configurez l'accès par clé publique/clé privée à la forge (cf. [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)).
-    > Expliquez la procédure de façon synthétique
+    > Pour me connecter au serveur en toute sécurité sans taper de mot de passe à chaque fois, j'ai créé une paire de clés SSH (une clé privée que je garde secrète, et une clé publique que j'ai envoyée au serveur). Une fois que le prof a validé ma clé publique de son côté, le serveur a pu me reconnaître automatiquement grâce à ma clé privée à chaque connexion.
 
 ## Partie II (à faire durant le TD) : compléter la classe `Fraction`
 Dans cet partie, vous compléterez les classes `Fraction` et `Main`.
